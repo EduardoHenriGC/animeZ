@@ -52,7 +52,7 @@ const WatchPage = () => {
   const carregarUrlVideo = async (animeId) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/${animeId}?index=${indexVideo}`,
+        `https://4nime-z.vercel.app/api/${animeId}?index=${indexVideo}`,
         {},
       );
 
