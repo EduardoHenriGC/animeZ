@@ -1,0 +1,21 @@
+.container {
+  height: auto;
+  width: 900px;
+}
+.skip {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+  margin-top: 4px;
+  color: gold;
+}
+.skip label {
+  font-weight: 600;
+  margin-right: 4px;
+}
+.skip input {
+  margin-left: 3px;
+  background-color: gold;
+  color: gold;
+}

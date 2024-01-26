@@ -1,0 +1,131 @@
+.Container {
+  padding: 3rem 18rem;
+  background-color: #ededed;
+}
+
+.h1 {
+  display: flex;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  background: linear-gradient(to right, #a855f7, #27ae60);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.4s ease-in-out;
+  align-items: center;
+  justify-content: center;
+}
+
+.h1 :hover {
+  transform: skew(-3deg);
+}
+.title {
+  margin: 3rem 0;
+  font-size: 2.4rem;
+  cursor: pointer;
+  color: #222;
+
+  display: flex;
+  justify-content: center;
+}
+
+.description {
+  margin-top: 2rem;
+  color: #6c7983;
+  line-height: 1.7rem;
+}
+
+.description button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #27ae60;
+  font-weight: 600;
+}
+
+.trailerCon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.details {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  border: 5px solid #e5e7eb;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.detail img {
+  border-radius: 7px;
+}
+
+.animeDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  gap: 40px;
+}
+.animeDetails p {
+  display: flex;
+  gap: 1rem;
+}
+
+.animeDetails p span:first-child {
+  font-weight: 600;
+  color: #454e56;
+}
+
+.characters {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+.character {
+  padding: 0.4rem 0.6rem;
+  border-radius: 7px;
+  background-color: #ededed;
+  transition: all 0.4s ease-in-out;
+}
+
+.character img {
+  width: 100%;
+  height: 170px;
+}
+
+.character h4 {
+  padding: 0.5rem 0;
+  color: #454e56;
+}
+
+.character p {
+  color: #27ae60;
+}
+.link {
+  text-decoration: none;
+}
+
+.character:hover {
+  transform: translateY(-5px);
+}

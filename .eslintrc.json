@@ -1,0 +1,23 @@
+{
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "react-native/react-native": true
+    },
+    "extends": [
+      "airbnb",
+      "plugin:react-native/all",
+      "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2021,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react-native",
+      "prettier"
+    ],
+    "rules": {
+      // Adicione aqui quaisquer regras específicas que você queira sobrescrever ou adicionar.
+    }
+  }
