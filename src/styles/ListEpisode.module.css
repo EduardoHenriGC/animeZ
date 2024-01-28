@@ -17,19 +17,20 @@
 .ListContainer {
   display: flex;
   align-items: center;
-  margin-top: 30px;
   border-top-right-radius: 0.5rem;
   border-top-left-radius: 0.5rem;
+  width: 100%;
 }
 
 .List {
   background-color: #f2f2f2;
-  width: 470px;
+  width: 320px;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
   height: 380px;
   scrollbar-width: thin; /* Para navegadores que não suportam ::webkit-scrollbar */
+  margin-top: 30px;
 }
 .List.ConditionalStyle {
   height: auto;
@@ -81,4 +82,19 @@
 .List li:hover {
   background-color: #ddd;
   color: #111;
+}
+
+@media (max-width: 1240px) {
+  .List {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 1250px) {
+  .container {
+    width: 100%;
+  }
+  .List {
+    width: 100%;
+  }
 }

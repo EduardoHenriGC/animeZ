@@ -15,7 +15,7 @@ const WatchPage = () => {
   const [indexVideo, setIndexVideo] = useState(1);
   const [UrlLegenda, setUrlLegenda] = useState(null);
   const [currentEp, setCurrentEp] = useState(null);
-  const [data, setData] = useState(null);
+
   const [opening, setOpening] = useState(null);
   const [openingEnds, setOpeningEnds] = useState(null);
   const [ending, setEnding] = useState(null);
@@ -60,7 +60,7 @@ const WatchPage = () => {
       setUrlVideo(data.url);
       setUrlLegenda(data.legenda);
       setCurrentEp(data.ep);
-      setData(data);
+
       setEnding(data.ending);
       setOpeningEnds(data.openingEnds);
       setOpening(data.opening);
@@ -80,7 +80,6 @@ const WatchPage = () => {
       );
       const episodeData = await episodeResponse.json();
       setEpisode(episodeData.data);
-      console.log(episodeData.data);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -108,7 +107,6 @@ const WatchPage = () => {
           setIndexVideo={setIndexVideo}
           anime={anime}
           setUrlVideo={setUrlVideo}
-          data={data}
           currentEp={currentEp}
           episode={episode}
         />

@@ -1,7 +1,3 @@
-.container {
-  height: auto;
-  width: 900px;
-}
 .skip {
   display: flex;
   align-items: center;

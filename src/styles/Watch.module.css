@@ -1,12 +1,29 @@
 .container {
   display: flex;
 
-  width: 100%;
+  width: auto;
+  height: auto;
   margin: 100px auto;
   justify-content: center;
   align-items: center;
   gap: 30px;
 }
 .videoContainer {
-  width: 1000px;
+  width: 900px;
+}
+
+@media (max-width: 1250px) {
+  .videoContainer {
+    width: 100%;
+  }
+  .container {
+    flex-direction: column;
+    width: 90%;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: 95%;
+  }
 }
