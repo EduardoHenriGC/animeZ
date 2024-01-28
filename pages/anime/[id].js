@@ -165,9 +165,12 @@ function AnimeItem() {
                 </p>
               </div>
             </div>
-            <div>
-              <Link href={`/anime/assistirOnline/${anime.mal_id}`}>
-                Watch now
+            <div className={styles.btnContainer}>
+              <Link
+                className={styles.btn}
+                href={`/anime/assistirOnline/${anime.mal_id}`}
+              >
+                assistir Online
               </Link>
             </div>
           </div>

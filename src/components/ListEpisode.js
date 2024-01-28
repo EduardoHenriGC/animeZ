@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import styles from '@/src/styles/ListEpisode.module.css';
 
 export default function ListEpisode({
@@ -7,63 +6,44 @@ export default function ListEpisode({
   currentEp,
   episode,
 }) {
-  const [shouldTruncate, setShouldTruncate] = useState(true);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const screenWidth = window.innerWidth;
-      setShouldTruncate(screenWidth <= 300 || screenWidth >= 1250);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-
-    handleResize();
-  }, []);
-
   if (!anime) {
+    // Render a loading state or return null
     return null;
   }
 
-  const truncateText = (text, maxLength) =>
-    shouldTruncate && text.length > maxLength
-      ? `${text.substring(0, maxLength)}..`
-      : text;
-
-  const getMaxLength = () =>
-    window.innerWidth > 350 && window.innerWidth < 500 ? 27 : 17;
+  function truncateText(text, maxLength) {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + '..';
+    }
+    return text;
+  }
 
   return (
     <div className={styles.container}>
       <p>
-        Você está assistindo episódio de <br />
+        Você está assistindo <br />
         <span>{anime.title_english}</span>
       </p>
 
       <div className={styles.ListContainer}>
         <ul
-          className={`${styles.List} ${
-            !episode?.some((name) => name.title) && anime.title
-              ? styles.ConditionalStyle
-              : ''
-          }`}
+          className={`${styles.List} ${!episode?.some((name) => name.title) && anime.title ? styles.ConditionalStyle : ''}`}
         >
           {episode?.map((name) => (
-            <li key={name.mal_id} onClick={() => setIndexVideo(name.mal_id)}>
-              <span>
-                <span>
-                  {name.mal_id} -{' '}
-                  {truncateText(name.title || currentEp, getMaxLength())}
-                </span>
-              </span>
+            <li key={name.mal_id}>
+              <button
+                title={name.title}
+                className={styles.btn}
+                onClick={() => setIndexVideo(name.mal_id)}
+              >
+                <span>{name.mal_id} -</span>
+                <span>{truncateText(name.title || currentEp, 18)}</span>
+              </button>
             </li>
           ))}
           {!episode?.some((name) => name.title) && anime.title && (
             <li key={anime.mal_id}>
-              <span>{truncateText(anime.title_english, getMaxLength())}</span>
+              <span>{truncateText(anime.title_english, 20)}</span>
             </li>
           )}
         </ul>

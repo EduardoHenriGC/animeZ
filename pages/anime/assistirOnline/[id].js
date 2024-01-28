@@ -15,7 +15,6 @@ const WatchPage = () => {
   const [indexVideo, setIndexVideo] = useState(1);
   const [UrlLegenda, setUrlLegenda] = useState(null);
   const [currentEp, setCurrentEp] = useState(null);
-
   const [opening, setOpening] = useState(null);
   const [openingEnds, setOpeningEnds] = useState(null);
   const [ending, setEnding] = useState(null);

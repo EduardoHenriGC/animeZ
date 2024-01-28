@@ -129,3 +129,12 @@
 .character:hover {
   transform: translateY(-5px);
 }
+.btn {
+  background-color: green;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 0.5rem;
+}
+.btnContainer {
+  margin-top: 40px;
+}
