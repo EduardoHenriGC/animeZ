@@ -14,7 +14,6 @@ const baseUrl = 'https://api.jikan.moe/v4';
 const LOADING = 'LOADING';
 const SEARCH = 'SEARCH';
 const GET_POPULAR_ANIME = 'GET_POPULAR_ANIME';
-const GET_PICTURES = 'GET_PICTURES';
 
 //reducer
 const reducer = (state, action) => {
@@ -25,10 +24,6 @@ const reducer = (state, action) => {
       return { ...state, popularAnime: action.payload, loading: false };
     case SEARCH:
       return { ...state, searchResults: action.payload, loading: false };
-    case GET_UPCOMING_ANIME:
-      return { ...state, upcomingAnime: action.payload, loading: false };
-    case GET_AIRING_ANIME:
-      return { ...state, airingAnime: action.payload, loading: false };
     case GET_PICTURES:
       return { ...state, pictures: action.payload, loading: false };
     default:
@@ -49,7 +44,15 @@ export const GlobalContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, intialState);
   const [search, setSearch] = useState('');
   const [filterResults, setFilterResults] = useState(null);
+  const [anime, setAnime] = useState({});
+  const [characters, setCharacters] = useState([]);
+  const [recommendations, setRecommendations] = useState(null);
+  const [relations, setRelations] = useState(null);
 
+  const disponiveis = [
+    1535, 9253, 32281, 34572, 36946, 38000, 40456, 40748, 44511, 48561, 48903,
+    50594, 52299,
+  ];
   //handle change
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -68,6 +71,40 @@ export const GlobalContextProvider = ({ children }) => {
       state.isSearch = false;
       alert('Please enter a search term');
     }
+  };
+
+  const SliceList = (data, limit, func) => {
+    if (data && data.length > 0) {
+      // Pega apenas os primeiros elementos com base no limite
+      const relationsSlice = data.slice(0, limit);
+
+      // Chama a função de estado dinâmica para salvar os elementos
+      func(relationsSlice);
+    }
+  };
+
+  const fetchData = async (id) => {
+    try {
+      const relationResponse = await fetch(`${baseUrl}/recommendations/anime`);
+      const relationData = await relationResponse.json();
+      SliceList(relationData.data, 9, setRelations);
+
+      const animeResponse = await fetch(`${baseUrl}/anime/${id}/full`);
+      const animeData = await animeResponse.json();
+      setAnime(animeData.data);
+
+      const charactersResponse = await fetch(
+        `${baseUrl}/anime/${id}/characters`,
+      );
+      const charactersData = await charactersResponse.json();
+      setCharacters(charactersData.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+    const response = await fetch(`${baseUrl}/anime/${id}/recommendations`);
+    const data = await response.json();
+
+    SliceList(data.data, 15, setRecommendations);
   };
   const handleFilterChange = async (filter) => {
     switch (filter) {
@@ -106,20 +143,10 @@ export const GlobalContextProvider = ({ children }) => {
   const searchAnime = async (anime) => {
     dispatch({ type: LOADING });
     const response = await fetch(
-      `https://api.jikan.moe/v4/anime?q=${anime}&order_by=popularity&sort=asc&sfw`,
+      `${baseUrl}/anime?q=${anime}&order_by=popularity&sort=asc&sfw`,
     );
     const data = await response.json();
     dispatch({ type: SEARCH, payload: data.data });
-  };
-
-  //get anime pictures
-  const getAnimePictures = async (id) => {
-    dispatch({ type: LOADING });
-    const response = await fetch(
-      `https://api.jikan.moe/v4/characters/${id}/pictures`,
-    );
-    const data = await response.json();
-    dispatch({ type: GET_PICTURES, payload: data.data });
   };
 
   //initial render
@@ -137,10 +164,15 @@ export const GlobalContextProvider = ({ children }) => {
         searchAnime,
         search,
         getPopularAnime,
-        getAnimePictures,
         getAnimeByFilter,
         handleFilterChange,
         filterResults,
+        anime,
+        characters,
+        fetchData,
+        recommendations,
+        relations,
+        disponiveis,
       }}
     >
       {children}

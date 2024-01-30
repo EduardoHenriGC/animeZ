@@ -5,12 +5,8 @@ import Sidebar from './Sidebar';
 import styles from '@/src/styles/Popular.module.css';
 
 function Popular() {
-  const { popularAnime, isSearch, searchResults } = useGlobalContext();
-
-  const disponiveis = [
-    1535, 9253, 32281, 34572, 36946, 38000, 40456, 40748, 44511, 48561, 48903,
-    50594, 52299,
-  ];
+  const { popularAnime, isSearch, searchResults, disponiveis } =
+    useGlobalContext();
 
   const filterSearchResults = () => {
     // Filtra os resultados de pesquisa para incluir apenas aqueles com IDs na lista disponiveis

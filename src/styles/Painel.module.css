@@ -1,0 +1,95 @@
+.container {
+  width: 1300px;
+  margin: 70px auto;
+  height: auto;
+  color: #ddd;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  background-color: #38383b;
+  height: 470px;
+  border-radius: 0.5rem;
+}
+
+.info {
+  width: 25%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: initial;
+  justify-content: center;
+}
+.info p {
+  margin-left: 30px;
+  padding: 5px;
+}
+
+.info p span:nth-child(1) {
+  font-weight: bold;
+}
+.info p span:nth-child(2) {
+  margin-left: 4px;
+}
+.flexScreen {
+  width: 75%;
+
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.flexScreen p {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flexScreen img {
+  height: 250px;
+  width: 200px;
+  margin-left: 4px;
+  border-radius: 0.5rem;
+}
+
+.flexScreen button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #27ae60;
+  font-weight: 600;
+}
+
+.ContentAction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.btn {
+  background-color: #32329a;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 0.5rem;
+}
+
+.imgContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin-left: 15px;
+}
+
+@media (max-width: 1700px) {
+  .container {
+    width: auto;
+  }
+}

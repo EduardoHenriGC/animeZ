@@ -43,7 +43,9 @@ export default function ListEpisode({
           ))}
           {!episode?.some((name) => name.title) && anime.title && (
             <li key={anime.mal_id}>
-              <span>{truncateText(anime.title_english, 20)}</span>
+              <button title={anime.title} className={styles.btn}>
+                <span>{truncateText(anime.title_english, 18)}</span>
+              </button>
             </li>
           )}
         </ul>
