@@ -35,6 +35,11 @@
 .character:hover {
   transform: translateY(-5px);
 }
+.title{
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
 
 @media (max-width: 1330px) {
   .characters {
