@@ -1,18 +1,39 @@
+# PortfolioEHGC
+
 ## Getting Started
-First download the project to your machine
+
+Siga os passos abaixo para configurar e rodar o projeto localmente.
+
+### 1. Clone o repositório
+
+```bash
 git clone https://github.com/EduardoHenriGC/PortfolioEHGC.git
+```
 
-second install the dependencies:
+### 2. Instale as dependências
+
+Navegue até a pasta do projeto e execute:
+
+```bash
 npm install
+```
 
-third, run the development server:
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### 3. Inicie o servidor de desenvolvimento
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Escolha uma das opções abaixo:
+
+```bash
+npm run dev   # Usando npm
+yarn dev      # Usando yarn
+pnpm dev      # Usando pnpm
+bun dev      # Usando bun
+```
+
+### 4. Acesse o projeto no navegador
+
+Abra [http://localhost:3000](http://localhost:3000) para ver o resultado.
+
+---
+
+Agora seu README está mais organizado e intuitivo! Se precisar adicionar mais informações, como tecnologias usadas ou estrutura do projeto, me avise!
 
